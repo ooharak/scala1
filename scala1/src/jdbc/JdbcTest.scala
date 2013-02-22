@@ -1,7 +1,7 @@
 package jdbc
 
-import java.sql.{ Array => _, _ }
-import scala.collection.immutable.Nil
+import java.sql.DriverManager
+
 object JdbcTest {
   def using[T <% { def close(): Unit }](r: T)(f: T => Any) {
     try f(r) finally r.close
